@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, SafeAreaView, View, Text } from "react-native";
+import { StyleSheet, SafeAreaView, View, Text, StatusBar } from "react-native";
 import { Feather } from '@expo/vector-icons';
 
 // our app function.
@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     backgroundColor: "pink",
+    marginTop: StatusBar.currentHeight || 0
   },
   container: {
     flex: 1, 
