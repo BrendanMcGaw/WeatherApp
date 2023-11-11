@@ -15,7 +15,8 @@ import {
     View
 } from "react-native"
 import { Ionicons } from '@expo/vector-icons';
-import { Feather } from "@expo/vector-icons"
+import { Feather } from "@expo/vector-icons";
+import { IonIconsText } from "../components/IonIconsText.js";
 
 const City = () => {
     return  (
@@ -27,8 +28,12 @@ const City = () => {
             <Text style={[styles.cityText, styles.cityName]}>Newcastle</Text>
             <Text style={[styles.cityText, styles.countryName]}>Australia</Text>
             <View style={styles.populationWrapper}>
-                <Ionicons name={"people"} size={50} color={"red"} />
-                <Text style={[styles.cityText, styles.popCount]}>1,000,000</Text>
+                <IonIconsText 
+                    iconName={"user"} 
+                    iconColor={"red"} 
+                    bodyText={"1,000,000"} 
+                    bodyTextStyles={styles.popCount}
+                />
             </View>
             <View style={styles.sunUpDownWrapper}>
                 <Feather name={"sunrise"} size={50} color={"white"} />
@@ -73,7 +78,6 @@ const styles = StyleSheet.create({
         fontSize: 25,
         marginLeft: 7.5,
         color: "red",
-        fontWeight: "bold"
     },
     sunUpDownWrapper: {
         flexDirection: "row",
@@ -86,7 +90,6 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         fontSize: 20,
         color: "white",
-        fontWeight: "bold"
     }
 })
 
