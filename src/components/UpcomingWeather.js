@@ -64,6 +64,7 @@ const UpcomingWeather = () => {
     )
     return (
         <SafeAreaView style={styles.container}>
+            {/* Allows image to sit in the background behind all the other objects. */}
             <ImageBackground
                 source={require("../../assets/thunderstorm-3625405_1920.jpg")} 
                 style={styles.image} 
@@ -103,6 +104,7 @@ const styles = StyleSheet.create({
         color: "white",
         fontSize: 15
     },
+    // Allows our image to fill the entire background on the page.
     image: {
         flex: 1
     },
