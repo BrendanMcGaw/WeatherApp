@@ -6,7 +6,16 @@
 // Sunrise & Sunset times
 
 import React from "react"
-import { SafeAreaView, Text, StyleSheet, ImageBackground} from "react-native"
+import { 
+    SafeAreaView, 
+    Text, 
+    StyleSheet, 
+    ImageBackground, 
+    StatusBar,
+    View
+} from "react-native"
+import { Ionicons } from '@expo/vector-icons';
+import { Feather } from "@expo/vector-icons"
 
 const City = () => {
     return  (
@@ -15,10 +24,18 @@ const City = () => {
             style={styles.image}
         >
         <SafeAreaView style={styles.container}>
-            <Text>Newcastle</Text>
-            <Text>Australia</Text>
-            <Text>1,000,000</Text>
-            <Text>6AM & 8PM</Text>
+            <Text style={[styles.cityText, styles.cityName]}>Newcastle</Text>
+            <Text style={[styles.cityText, styles.countryName]}>Australia</Text>
+            <View style={styles.populationWrapper}>
+                <Ionicons name={"people"} size={50} color={"red"} />
+                <Text style={[styles.cityText, styles.popCount]}>1,000,000</Text>
+            </View>
+            <View style={styles.sunUpDownWrapper}>
+                <Feather name={"sunrise"} size={50} color={"white"} />
+                <Text style={[styles.cityText, styles.sunUpDown]}>6:42:52am</Text>
+                <Feather name={"sunset"} size={50} color={"white"} />
+                <Text style={[styles.cityText, styles.sunUpDown]}>20:12:15pm</Text>
+            </View>
         </SafeAreaView>
         </ImageBackground>
     )
@@ -26,10 +43,50 @@ const City = () => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        marginTop: StatusBar.currentHeight || 0
     },
     image: {
         flex: 1
+    },
+    cityText: {
+        alignSelf: "center",
+        justifyContent: "center",
+        fontWeight: "bold",
+        color: "white"
+    },
+    cityName: {
+        fontSize: 40
+    },
+    countryName: {
+        fontSize: 30,
+    },
+    populationWrapper: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 30
+    },
+    popCount: {
+        alignSelf: "center",
+        justifyContent: "center",
+        fontSize: 25,
+        marginLeft: 7.5,
+        color: "red",
+        fontWeight: "bold"
+    },
+    sunUpDownWrapper: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-around",
+        marginTop: 30,
+    },
+    sunUpDown: {
+        alignSelf: "center",
+        justifyContent: "center",
+        fontSize: 20,
+        color: "white",
+        fontWeight: "bold"
     }
 })
 
