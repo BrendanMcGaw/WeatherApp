@@ -4,20 +4,21 @@ import { Feather } from '@expo/vector-icons';
 
 // our app function.
 const CurrentWeather = () => {
+  const { wrapper, container, temperature, feels, rangeWrapper, range,  bodyWrapper, description, message} = styles
   return (
-    <SafeAreaView style={styles.wrapper}>
-      <View style={styles.container}>
+    <SafeAreaView style={wrapper}>
+      <View style={container}>
         <Feather name="sun" size={100} color="black" />
-        <Text style={styles.temperature}>6</Text>
-        <Text style={styles.feels}>Feels like 3</Text>
-        <View style={styles.rangeWrapper}>
-          <Text style={styles.range}>High: 8</Text>
-          <Text style={styles.range}>Low: 6</Text>
+        <Text style={temperature}>6</Text>
+        <Text style={feels}>Feels like 3</Text>
+        <View style={rangeWrapper}>
+          <Text style={range}>High: 8</Text>
+          <Text style={range}>Low: 6</Text>
         </View>
       </View>
-      <View style={styles.bodyWrapper}>
-        <Text style={styles.description}>Its sunny</Text>
-        <Text style={styles.message}>Its perfect t-shirt weather</Text>
+      <View style={bodyWrapper}>
+        <Text style={description}>Its sunny</Text>
+        <Text style={message}>Its perfect t-shirt weather</Text>
       </View>      
     </SafeAreaView>
   )
