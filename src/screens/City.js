@@ -14,32 +14,39 @@ import {
     StatusBar,
     View
 } from "react-native"
-import { Ionicons } from '@expo/vector-icons';
-import { Feather } from "@expo/vector-icons";
-import { IonIconsText } from "../components/IonIconsText.js";
+import IconText from "../components/IconText";
 
 const City = () => {
+    const { container, cityName, cityText, countryName, populationWrapper, popCount, sunUpDownWrapper, sunUpDown, rowLayout } = styles
     return  (
         <ImageBackground
             source={require("../../assets/city-background.jpg")}
             style={styles.image}
         >
-        <SafeAreaView style={styles.container}>
-            <Text style={[styles.cityText, styles.cityName]}>Newcastle</Text>
-            <Text style={[styles.cityText, styles.countryName]}>Australia</Text>
-            <View style={styles.populationWrapper}>
-                <IonIconsText 
+        <SafeAreaView style={container}>
+            <Text style={[cityText, cityName]}>Newcastle</Text>
+            <Text style={[cityText, countryName]}>Australia</Text>
+            <View style={[populationWrapper, rowLayout]}>
+                <IconText
                     iconName={"user"} 
                     iconColor={"red"} 
                     bodyText={"1,000,000"} 
-                    bodyTextStyles={styles.popCount}
+                    bodyTextStyles={popCount}
                 />
             </View>
-            <View style={styles.sunUpDownWrapper}>
-                <Feather name={"sunrise"} size={50} color={"white"} />
-                <Text style={[styles.cityText, styles.sunUpDown]}>6:42:52am</Text>
-                <Feather name={"sunset"} size={50} color={"white"} />
-                <Text style={[styles.cityText, styles.sunUpDown]}>20:12:15pm</Text>
+            <View style={[sunUpDownWrapper, rowLayout]}>
+                <IconText 
+                    iconName={"sunrise"} 
+                    iconColor={"white"}
+                    bodyText={"6:42:52am"} 
+                    bodyTextStyles={sunUpDown} 
+                />
+                <IconText 
+                    iconName={"sunset"} 
+                    iconColor={"white"} 
+                    bodyText={"20:12:15pm"} 
+                    bodyTextStyles={sunUpDown} 
+                />
             </View>
         </SafeAreaView>
         </ImageBackground>
@@ -67,8 +74,6 @@ const styles = StyleSheet.create({
         fontSize: 30,
     },
     populationWrapper: {
-        flexDirection: "row",
-        alignItems: "center",
         justifyContent: "center",
         marginTop: 30
     },
@@ -80,8 +85,6 @@ const styles = StyleSheet.create({
         color: "red",
     },
     sunUpDownWrapper: {
-        flexDirection: "row",
-        alignItems: "center",
         justifyContent: "space-around",
         marginTop: 30,
     },
@@ -90,6 +93,10 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         fontSize: 20,
         color: "white",
+    },
+    rowLayout:  {
+        flexDirection: "row",
+        alignItems: "center"
     }
 })
 
