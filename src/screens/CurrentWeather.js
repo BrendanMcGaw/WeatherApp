@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, SafeAreaView, View, Text, StatusBar } from "react-native";
 import { Feather } from '@expo/vector-icons';
+import RowText from "../components/RowText"
 
 // our app function.
 const CurrentWeather = () => {
@@ -11,15 +12,22 @@ const CurrentWeather = () => {
         <Feather name="sun" size={100} color="black" />
         <Text style={temperature}>6</Text>
         <Text style={feels}>Feels like 3</Text>
-        <View style={rangeWrapper}>
-          <Text style={range}>High: 8</Text>
-          <Text style={range}>Low: 6</Text>
-        </View>
+        {/* Refering to RowText component to create inputs. */}
+        <RowText 
+          messageOne={"High: 8"} 
+          messageTwo={"Low: 6"} 
+          containerStyles={rangeWrapper} 
+          messageOneStyles={range} 
+          messageTwoStyles={range} 
+        />
       </View>
-      <View style={bodyWrapper}>
-        <Text style={description}>Its sunny</Text>
-        <Text style={message}>Its perfect t-shirt weather</Text>
-      </View>      
+      <RowText 
+          messageOne={"Its Sunny!"} 
+          messageTwo={"Its perfect t-shirt weather"} 
+          containerStyles={bodyWrapper} 
+          messageOneStyles={description} 
+          messageTwoStyles={message} 
+      />
     </SafeAreaView>
   )
 }
