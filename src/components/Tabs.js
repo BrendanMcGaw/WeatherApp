@@ -13,6 +13,18 @@ const Tabs = () => {
             screenOptions={{
                 tabBarActiveTintColor: "tomato",
                 tabBarInactiveTintColor: "grey",
+                tabBarStyle: {
+                    backgroundColor: "lightblue",
+                },
+                headerStyle: {
+                    backgroundColor: "lightblue",
+                },
+                headerTitleStyle: {
+                    fontWeight: "bold",
+                    fontSize: 25,
+                    color: "tomato"
+                },
+                headerTitleAlign: "center"
             }}
         >
             <Tab.Screen name={"Current"} component={CurrentWeather} options={{

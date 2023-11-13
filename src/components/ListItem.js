@@ -32,11 +32,11 @@ const styles = StyleSheet.create ({
     },
     temp: {
         color: "white",
-        fontSize: 20
+        fontSize: 15
     },
     dt: {
         color: "white",
-        fontSize: 15
+        fontSize: 12
     },
 })
 
