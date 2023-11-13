@@ -71,7 +71,7 @@ const UpcomingWeather = () => {
                 />  
             </SafeAreaView>
         </ImageBackground>
-    )  
+    )
 }
 
 const styles = StyleSheet.create({

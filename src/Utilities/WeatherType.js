@@ -1,3 +1,14 @@
+import Video from "react-native-video"
+
+{/* <Video 
+    source={require("../../assets/rain.mp4"
+    style={styles.backgroundVideo}
+)} /> */}
+
+// Want to create conditional changes to the background of current weather if its raining or whatnot etc...
+// Videos to be  found  at pixabay.com
+// https://www.freecodecamp.org/news/how-to-create-a-background-video-in-react-native-cb53304ee4f6/
+// instructional guide on how to use library of react native videos to  make them  into background  videos.
 export const WeatherType = {
     Thunderstorm: {
         icon: "zap",
