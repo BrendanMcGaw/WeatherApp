@@ -59,28 +59,25 @@ const UpcomingWeather = () => {
     )
     const { container, image } = styles
     return (
-        <SafeAreaView style={container}>
-            {/* Allows image to sit in the background behind all the other objects. */}
-            <ImageBackground
-                source={require("../../assets/thunderstorm-3625405_1920.jpg")} 
-                style={image} 
-            >
-                <Text>Upcoming Weather</Text>
+        <ImageBackground
+            source={require("../../assets/thunderstorm-3625405_1920.jpg")} 
+            style={image} 
+        >
+            <SafeAreaView style={container}>
                 <FlatList 
                     data={DATA}
                     renderItem={renderItem}
                     keyExtractor={(item) => item.dt_txt}
-                />
-            </ImageBackground>
-        </SafeAreaView>
-    )
+                />  
+            </SafeAreaView>
+        </ImageBackground>
+    )  
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         marginTop: StatusBar.currentHeight || 0,
-        backgroundColor: "royalblue"
     },
     // Allows our image to fill the entire background on the page.
     image: {

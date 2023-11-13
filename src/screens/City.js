@@ -17,11 +17,11 @@ import {
 import IconText from "../components/IconText";
 
 const City = () => {
-    const { container, cityName, cityText, countryName, populationWrapper, popCount, sunUpDownWrapper, sunUpDown, rowLayout } = styles
+    const { container, cityName, cityText, countryName, populationWrapper, popCount, sunUpDownWrapper, sunUpDown, rowLayout, image } = styles
     return  (
         <ImageBackground
             source={require("../../assets/city-background.jpg")}
-            style={styles.image}
+            style={image}
         >
         <SafeAreaView style={container}>
             <Text style={[cityText, cityName]}>Newcastle</Text>
