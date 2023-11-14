@@ -9,6 +9,8 @@ import Video from "react-native-video"
 // Videos to be  found  at pixabay.com
 // https://www.freecodecamp.org/news/how-to-create-a-background-video-in-react-native-cb53304ee4f6/
 // instructional guide on how to use library of react native videos to  make them  into background  videos.
+// https://stackoverflow.com/questions/60018247/react-native-video-cannot-read-property-constants-of-null
+// for  an issue I might have in the future.
 export const WeatherType = {
     Thunderstorm: {
         icon: "zap",
