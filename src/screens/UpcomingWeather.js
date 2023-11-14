@@ -1,88 +1,88 @@
 import React from "react";
-import { 
-    SafeAreaView, 
-    StyleSheet, 
-    Text, 
-    FlatList, 
-    StatusBar, 
-    ImageBackground 
-} from "react-native"
-import ListItem from "../components/ListItem"
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  FlatList,
+  StatusBar,
+  ImageBackground,
+} from "react-native";
+import ListItem from "../components/ListItem";
 
 const DATA = [
-    {
-        dt_txt: "2022-08-30 15:00:00",
-        main: {
-            temp_max: 297.87,
-            temp_min: 296.76
-        },
-        weather: [
-            {
-                main: "Rain"
-            }
-        ]
+  {
+    dt_txt: "2022-08-30 15:00:00",
+    main: {
+      temp_max: 297.87,
+      temp_min: 296.76,
     },
-    {
-        dt_txt: "2022-08-30 18:00:00",
-        main: {
-            temp_max: 295.45,
-            temp_min: 292.84
-        },
-        weather: [
-            {
-                main:  "Rain"
-            }
-        ]
+    weather: [
+      {
+        main: "Rain",
+      },
+    ],
+  },
+  {
+    dt_txt: "2022-08-30 18:00:00",
+    main: {
+      temp_max: 295.45,
+      temp_min: 292.84,
     },
-    {
-        dt_txt: "2022-08-30 21:00:00",
-        main: {
-            temp_max: 294.93, 
-            temp_min: 294.93
-        },
-        weather: [
-            {
-                main: "Clouds"
-            }
-        ]
-    }
-]
+    weather: [
+      {
+        main: "Rain",
+      },
+    ],
+  },
+  {
+    dt_txt: "2022-08-30 21:00:00",
+    main: {
+      temp_max: 294.93,
+      temp_min: 294.93,
+    },
+    weather: [
+      {
+        main: "Clouds",
+      },
+    ],
+  },
+];
 
 const UpcomingWeather = () => {
-    const renderItem = ({ item }) => (
-        <ListItem  
-            condition={item.weather[0].main} 
-            dt_txt={item.dt_txt} 
-            max={item.main.temp_max} 
-            min={item.main.temp_min} 
+  const renderItem = ({ item }) => (
+    <ListItem
+      condition={item.weather[0].main}
+      dt_txt={item.dt_txt}
+      max={item.main.temp_max}
+      min={item.main.temp_min}
+    />
+  );
+  const { container, image } = styles;
+  return (
+    <ImageBackground
+      source={require("../../assets/thunderstorm-3625405_1920.jpg")}
+      style={image}
+    >
+      <SafeAreaView style={container}>
+        <FlatList
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.dt_txt}
         />
-    )
-    const { container, image } = styles
-    return (
-        <ImageBackground
-            source={require("../../assets/thunderstorm-3625405_1920.jpg")} 
-            style={image} 
-        >
-            <SafeAreaView style={container}>
-                <FlatList 
-                    data={DATA}
-                    renderItem={renderItem}
-                    keyExtractor={(item) => item.dt_txt}
-                />  
-            </SafeAreaView>
-        </ImageBackground>
-    )
-}
+      </SafeAreaView>
+    </ImageBackground>
+  );
+};
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        marginTop: StatusBar.currentHeight || 0,
-    },
-    // Allows our image to fill the entire background on the page.
-    image: {
-        flex: 1
-    },
-})
- 
+  container: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
+  },
+  // Allows our image to fill the entire background on the page.
+  image: {
+    flex: 1,
+  },
+});
+
 export default UpcomingWeather;
