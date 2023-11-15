@@ -1,14 +1,16 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native"
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import Tabs from "./src/components/Tabs"
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Tabs from "./src/components/Tabs";
+import Counter from "./src/demonstration/Counter";
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Tabs/>
+      <Counter />
+      {/* <Tabs /> */}
     </NavigationContainer>
-  )
-}
+  );
+};
 
-export default App
+export default App;
