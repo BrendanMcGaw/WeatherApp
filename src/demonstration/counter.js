@@ -36,7 +36,7 @@ const Counter = () => {
         }}
       />
       <Button
-        color={"green"}
+        color={"blue"}
         title={"Decrease the count"}
         onPress={() => {
           setNewCount(count - 1);
