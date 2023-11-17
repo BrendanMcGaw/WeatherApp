@@ -4,14 +4,29 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Tabs from "./src/components/Tabs";
 import * as Location from "expo-location";
-import { TEST_KEY } from "@env";
+import { WEATHER_API_KEY } from "@env";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
-  const [location, setLocation] = useState(null);
   const [error, setError] = useState(null);
-  console.log(TEST_KEY);
-  // api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
+  const [weather, setWeather] = useState([]);
+  const [lat, setLat] = useState([]);
+  const [lon, setLon] = useState([]);
+
+  const fetchWeatherData = async () => {
+    try {
+      const res = await fetch(
+        `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}`
+      );
+      const data = await res.json();
+      setWeather(data);
+      setLoading(false);
+    } catch (error) {
+      setError("Could not fetch weather.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     // While waiting for permission (Async allows task to pause and do other tasks) it will continue to load geolocation.
@@ -22,10 +37,12 @@ const App = () => {
         return;
       }
       let location = await Location.getCurrentPositionAsync({});
-      setLocation(location);
-      console.log(location);
+      setLat(location.coords.latitude);
+      setLon(location.coords.longitude);
+      await fetchWeatherData();
+      console.log(weather);
     })(); // immediate invoking on function we put () afterwards.
-  }, []); // Empty array is for the dependencies. This allows the useEffect to only run once when the component is first run.
+  }, [lat, lon]); // Array is for the dependencies. This allows the useEffect to only run once when the component is first run.
 
   if (loading) {
     return (
