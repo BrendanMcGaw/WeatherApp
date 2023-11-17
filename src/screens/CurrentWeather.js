@@ -40,20 +40,20 @@ const CurrentWeather = ({ weatherData }) => {
           size={100}
           color="white"
         />
-        <Text style={tempStyles}>{weatherData.main.temp}</Text>
-        <Text style={feels}>Feels like {weatherData.main.feels_like}</Text>
+        <Text style={tempStyles}>{temp}</Text>
+        <Text style={feels}>{`Feels like ${feels_like}`}</Text>
         {/* Refering to RowText component to create inputs. */}
         <RowText
-          messageOne={"High: 8"}
-          messageTwo={"Low: 6"}
+          messageOne={`High: ${temp_max}`}
+          messageTwo={`Low: ${temp_min}`}
           containerStyles={rangeWrapper}
           messageOneStyles={range}
           messageTwoStyles={range}
         />
       </View>
       <RowText
-        messageOne={WeatherType["Thunderstorm"].icon}
-        messageTwo={WeatherType["Thunderstorm"].message}
+        messageOne={weather[0].description}
+        messageTwo={WeatherType[weatherCondition].message} // Choosing to use the main name under the weather API and matches it to our weatherType and pulls the message from the type of weather.
         containerStyles={bodyWrapper}
         messageOneStyles={description}
         messageTwoStyles={message}
