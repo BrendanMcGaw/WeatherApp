@@ -5,11 +5,11 @@ import RowText from "../components/RowText";
 import { WeatherType } from "../Utilities/WeatherType";
 
 // our app function.
-const CurrentWeather = () => {
+const CurrentWeather = ({ weatherData }) => {
   const {
     wrapper,
     container,
-    temperature,
+    tempStyles,
     feels,
     rangeWrapper,
     range,
@@ -17,12 +17,31 @@ const CurrentWeather = () => {
     description,
     message,
   } = styles;
+
+  const {
+    main: { temp, feels_like, temp_max, temp_min },
+    weather,
+  } = weatherData;
+
+  const weatherCondition = weather[0].main;
+
+  console.log(JSON.stringify(weatherData, null, 6));
+  console.log(weatherData.main.temp);
   return (
-    <SafeAreaView style={wrapper}>
+    <SafeAreaView
+      style={[
+        wrapper,
+        { backgroundColor: WeatherType[weatherCondition].backgroundColor },
+      ]}
+    >
       <View style={container}>
-        <Feather name="sun" size={100} color="black" />
-        <Text style={temperature}>6</Text>
-        <Text style={feels}>Feels like 3</Text>
+        <Feather
+          name={WeatherType[weatherCondition].icon}
+          size={100}
+          color="white"
+        />
+        <Text style={tempStyles}>{weatherData.main.temp}</Text>
+        <Text style={feels}>Feels like {weatherData.main.feels_like}</Text>
         {/* Refering to RowText component to create inputs. */}
         <RowText
           messageOne={"High: 8"}
@@ -53,7 +72,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  temperature: {
+  tempStyles: {
     color: "black",
     fontSize: 48,
   },
