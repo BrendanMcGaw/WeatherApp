@@ -15,8 +15,9 @@ import {
   View,
 } from "react-native";
 import IconText from "../components/IconText";
+import moment from "moment";
 
-const City = () => {
+const City = ({ weatherData }) => {
   const {
     container,
     cityName,
@@ -29,19 +30,21 @@ const City = () => {
     rowLayout,
     image,
   } = styles;
+  // We destructure the property so that we can easily choose the objects or properties from the API that we wish to target.
+  const { name, country, population, sunrise, sunset } = weatherData;
   return (
     <ImageBackground
       source={require("../../assets/city-background.jpg")}
       style={image}
     >
       <SafeAreaView style={container}>
-        <Text style={[cityText, cityName]}>Newcastle</Text>
-        <Text style={[cityText, countryName]}>Australia</Text>
+        <Text style={[cityText, cityName]}>{name}</Text>
+        <Text style={[cityText, countryName]}>{country}</Text>
         <View style={[populationWrapper, rowLayout]}>
           <IconText
             iconName={"user"}
             iconColor={"red"}
-            bodyText={"1,000,000"}
+            bodyText={"Population: " + population}
             bodyTextStyles={popCount}
           />
         </View>
@@ -49,13 +52,13 @@ const City = () => {
           <IconText
             iconName={"sunrise"}
             iconColor={"white"}
-            bodyText={"6:42:52am"}
+            bodyText={moment(sunrise).format("h:mm:ss a")}
             bodyTextStyles={sunUpDown}
           />
           <IconText
             iconName={"sunset"}
             iconColor={"white"}
-            bodyText={"20:12:15pm"}
+            bodyText={moment(sunset).format("h:mm:ss a")}
             bodyTextStyles={sunUpDown}
           />
         </View>

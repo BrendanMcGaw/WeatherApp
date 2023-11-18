@@ -1,14 +1,17 @@
+// Has stopped rendering our list of items.
+
 import React from "react";
 import {
   SafeAreaView,
   StyleSheet,
   FlatList,
+  Text,
   StatusBar,
   ImageBackground,
 } from "react-native";
 import ListItem from "../components/ListItem";
 
-const UpcomingWeather = (weatherData) => {
+const UpcomingWeather = ({ weatherData }) => {
   const renderItem = ({ item }) => (
     <ListItem
       condition={item.weather[0].main}
