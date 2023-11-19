@@ -44,8 +44,8 @@ const CurrentWeather = ({ weatherData }) => {
         <Text style={feels}>{`Feels like ${feels_like}`}</Text>
         {/* Refering to RowText component to create inputs. */}
         <RowText
-          messageOne={`High: ${temp_max}`}
-          messageTwo={`Low: ${temp_min}`}
+          messageOne={`High: ${temp_max}°`}
+          messageTwo={`Low: ${temp_min}°`}
           containerStyles={rangeWrapper}
           messageOneStyles={range}
           messageTwoStyles={range}

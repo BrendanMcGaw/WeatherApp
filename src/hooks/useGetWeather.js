@@ -10,6 +10,7 @@ export const useGetWeather = () => {
   const [lat, setLat] = useState([]);
   const [lon, setLon] = useState([]);
   console.log("This is the latitude" + lat + " " + lon);
+
   const fetchWeatherData = async () => {
     try {
       const res = await fetch(
@@ -36,9 +37,8 @@ export const useGetWeather = () => {
       let location = await Location.getCurrentPositionAsync({});
       setLat(location.coords.latitude);
       setLon(location.coords.longitude);
-      console.log(`This is your latitude ${lat} and longitude ${lon}`);
       await fetchWeatherData();
-      console.log(weather);
+      console.log(JSON.stringify(weather, null, 6));
     })(); // immediate invoking on function we put () afterwards.
   }, [lat, lon]); // Array is for the dependencies. This allows the useEffect to only run once when the component is first run.
   return [loading, error, weather];
