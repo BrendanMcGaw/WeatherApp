@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-    borderWidth: 5,
-    backgroundColor: "pink",
+    borderWidth: 2.5,
+    backgroundColor: "#818589",
   },
   temp: {
     color: "white",

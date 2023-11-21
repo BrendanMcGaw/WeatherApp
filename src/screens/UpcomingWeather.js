@@ -1,11 +1,8 @@
-// Has stopped rendering our list of items.
-
 import React from "react";
 import {
   SafeAreaView,
   StyleSheet,
   FlatList,
-  Text,
   StatusBar,
   ImageBackground,
 } from "react-native";
