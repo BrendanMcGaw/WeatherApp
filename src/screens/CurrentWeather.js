@@ -17,6 +17,7 @@ const CurrentWeather = ({ weatherData }) => {
     bodyWrapper,
     description,
     message,
+    bolden,
   } = styles;
 
   const {
@@ -48,15 +49,15 @@ const CurrentWeather = ({ weatherData }) => {
           size={100}
           color="white"
         />
-        <Text style={tempStyles}>{temp}°</Text>
-        <Text style={feels}>{`Feels like ${feels_like}°`}</Text>
+        <Text style={[tempStyles, bolden]}>{temp}°</Text>
+        <Text style={[feels, bolden]}>{`Feels like ${feels_like}°`}</Text>
         {/* Refering to RowText component to create inputs. */}
         <RowText
           messageOne={`High: ${temp_max}°`}
           messageTwo={`Low: ${temp_min}°`}
           containerStyles={rangeWrapper}
-          messageOneStyles={range}
-          messageTwoStyles={range}
+          messageOneStyles={[range, bolden]}
+          messageTwoStyles={[range, bolden]}
         />
       </View>
       <RowText
@@ -73,6 +74,9 @@ const CurrentWeather = ({ weatherData }) => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
+  },
+  bolden: {
+    fontWeight: "bold",
   },
   container: {
     flex: 1,
