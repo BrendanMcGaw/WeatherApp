@@ -15,7 +15,7 @@ const ListItem = (props) => {
   return (
     <View style={item}>
       <Feather name={WeatherType[condition].icon} size={50} color={"white"} />
-      <View style={styles.dateTextWrapper}>
+      <View style={dateTextWrapper}>
         <Text style={date}>{moment(dt_txt).format("dddd")}</Text>
         <Text style={date}>{moment(dt_txt).format("h:mm:ss a")}</Text>
       </View>
