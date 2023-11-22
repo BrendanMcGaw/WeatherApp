@@ -7,7 +7,7 @@ import Tuesday from "../screens/Tuesday";
 import UpcomingWeather from "../screens/UpcomingWeather";
 
 const Stack = createNativeStackNavigator();
-
+// TODO::: SETUP DATA PASSING --- REFER BACK TO TABS.JS for an example of how to do this with our API data.
 const UpcomingStack = () => {
   return (
     <Stack.Navigator>

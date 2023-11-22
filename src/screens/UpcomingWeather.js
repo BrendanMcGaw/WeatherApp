@@ -9,7 +9,6 @@ import {
   Button,
 } from "react-native";
 import ListItem from "../components/ListItem";
-import Monday from "./Monday";
 
 const UpcomingWeather = ({ navigation }) => {
   return (
@@ -19,7 +18,10 @@ const UpcomingWeather = ({ navigation }) => {
         title="Go to Monday."
         onPress={() => navigation.navigate("Monday")}
       />
-      <Button title="Go to Tuesday." />
+      <Button
+        title="Go to Tuesday."
+        onPress={() => navigation.navigate("Tuesday")}
+      />
       <Button title="Go to Wednesday." />
       <Button title="Go to Thursday." />
       <Button title="Go to Friday." />

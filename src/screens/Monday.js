@@ -1,11 +1,38 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  SafeAreaView,
+  FlatList,
+} from "react-native";
+import ListItem from "../components/ListItem";
 
-const Monday = () => {
+const Monday = ({ weatherData }) => {
+  const renderItem = ({ item }) => (
+    <ListItem
+      condition={item.weather[0]?.main}
+      dt_txt={item.dt_txt}
+      max={item.main.temp_max}
+      min={item.main.temp_min}
+    />
+  );
+  const { container, image } = styles;
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Hello World!</Text>
-    </View>
+    <ImageBackground
+      source={require("../../assets/thunderstorm-3625405_1920.jpg")}
+      style={image}
+    >
+      <SafeAreaView style={container}>
+        <FlatList
+          data={weatherData}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.dt_txt}
+        />
+        <Text>Cool text.</Text>
+      </SafeAreaView>
+    </ImageBackground>
   );
 };
 
@@ -13,13 +40,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "orange",
-    justifyContent: "center",
-    alignItems: "center",
   },
-  text: {
-    fontSize: 36,
-    fontWeight: "bold",
-    color: "white",
+  image: {
+    flex: 1,
   },
 });
 
