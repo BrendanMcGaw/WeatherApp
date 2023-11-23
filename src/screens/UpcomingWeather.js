@@ -22,11 +22,26 @@ const UpcomingWeather = ({ navigation }) => {
         title="Go to Tuesday."
         onPress={() => navigation.navigate("Tuesday")}
       />
-      <Button title="Go to Wednesday." />
-      <Button title="Go to Thursday." />
-      <Button title="Go to Friday." />
-      <Button title="Go to Saturday." />
-      <Button title="Go to Sunday." />
+      <Button
+        title="Go to Wednesday."
+        onPress={() => navigation.navigate("Wednesday")}
+      />
+      <Button
+        title="Go to Thursday."
+        onPress={() => navigation.navigate("Thursday")}
+      />
+      <Button
+        title="Go to Friday."
+        onPress={() => navigation.navigate("Friday")}
+      />
+      <Button
+        title="Go to Saturday."
+        onPress={() => navigation.navigate("Saturday")}
+      />
+      <Button
+        title="Go to Sunday."
+        onPress={() => navigation.navigate("Sunday")}
+      />
     </SafeAreaView>
   );
 

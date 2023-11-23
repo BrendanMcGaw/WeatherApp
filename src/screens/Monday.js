@@ -30,7 +30,7 @@ const Monday = ({ weatherData }) => {
           renderItem={renderItem}
           keyExtractor={(item) => item.dt_txt}
         />
-        <Text>Cool text.</Text>
+        <Text>Cool text. Mad</Text>
       </SafeAreaView>
     </ImageBackground>
   );

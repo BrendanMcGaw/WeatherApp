@@ -32,6 +32,30 @@ const City = ({ weatherData }) => {
   } = styles;
   // We destructure the property so that we can easily choose the objects or properties from the API that we wish to target.
   const { name, country, population, sunrise, sunset } = weatherData;
+
+  // Gets the real sunrise time for my local area.
+  const sunriseUnixTimestamp = sunrise;
+  const sunriseDate = new Date(sunriseUnixTimestamp * 1000);
+  const sunriseHours = sunriseDate.getHours();
+  const sunriseMinutes = sunriseDate.getMinutes();
+  const sunriseSeconds = sunriseDate.getSeconds();
+
+  // Gets the real sunset time for my local area.
+  const sunsetUnixTimestamp = sunset;
+  // multiply the unix time by 1000 to get the unix time of seconds into milliseconds and then calculate the real time.
+  const sunsetDate = new Date(sunsetUnixTimestamp * 1000);
+  const sunsetHours = sunsetDate.getHours();
+  const sunsetMinutes = sunsetDate.getMinutes();
+  const sunsetSeconds = sunsetDate.getSeconds();
+
+  // Properly formatted correct local time
+  const sunriseFormattedTime =
+    sunriseHours + ":" + sunriseMinutes + ":" + sunriseSeconds;
+
+  // Properly formatted correct local time
+  const sunsetFormattedTime =
+    sunsetHours + ":" + sunsetMinutes + ":" + sunsetSeconds;
+
   return (
     <ImageBackground
       source={require("../../assets/city-background.jpg")}
@@ -52,13 +76,13 @@ const City = ({ weatherData }) => {
           <IconText
             iconName={"sunrise"}
             iconColor={"white"}
-            bodyText={moment(sunrise).format("h:mm:ss a")}
+            bodyText={sunriseFormattedTime + " am"}
             bodyTextStyles={sunUpDown}
           />
           <IconText
             iconName={"sunset"}
             iconColor={"white"}
-            bodyText={moment(sunset).format("h:mm:ss a")}
+            bodyText={sunsetFormattedTime + " pm"}
             bodyTextStyles={sunUpDown}
           />
         </View>
