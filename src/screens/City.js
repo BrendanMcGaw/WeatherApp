@@ -15,7 +15,6 @@ import {
   View,
 } from "react-native";
 import IconText from "../components/IconText";
-import moment from "moment";
 
 const City = ({ weatherData }) => {
   const {

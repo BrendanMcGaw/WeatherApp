@@ -14,8 +14,17 @@ const Stack = createNativeStackNavigator();
 // TODO::: SETUP DATA PASSING --- REFER BACK TO TABS.JS for an example of how to do this with our API data.
 const UpcomingStack = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Upcoming Weather" component={UpcomingWeather} />
+    // Allows us to hide the header on only a specific page.
+    <Stack.Navigator
+      screenOptions={{
+        animationDuration: 5,
+      }}
+    >
+      <Stack.Screen
+        options={{ headerShown: false }}
+        name="Upcoming Weather"
+        component={UpcomingWeather}
+      />
       <Stack.Screen name="Monday" component={Monday} />
       <Stack.Screen name="Tuesday" component={Tuesday} />
       <Stack.Screen name="Wednesday" component={Wednesday} />
@@ -26,7 +35,5 @@ const UpcomingStack = () => {
     </Stack.Navigator>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default UpcomingStack;

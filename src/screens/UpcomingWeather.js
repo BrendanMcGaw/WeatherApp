@@ -12,37 +12,41 @@ import ListItem from "../components/ListItem";
 
 const UpcomingWeather = ({ navigation }) => {
   return (
-    <SafeAreaView>
-      <Text>What the fuck is this!?</Text>
-      <Button
-        title="Go to Monday."
-        onPress={() => navigation.navigate("Monday")}
-      />
-      <Button
-        title="Go to Tuesday."
-        onPress={() => navigation.navigate("Tuesday")}
-      />
-      <Button
-        title="Go to Wednesday."
-        onPress={() => navigation.navigate("Wednesday")}
-      />
-      <Button
-        title="Go to Thursday."
-        onPress={() => navigation.navigate("Thursday")}
-      />
-      <Button
-        title="Go to Friday."
-        onPress={() => navigation.navigate("Friday")}
-      />
-      <Button
-        title="Go to Saturday."
-        onPress={() => navigation.navigate("Saturday")}
-      />
-      <Button
-        title="Go to Sunday."
-        onPress={() => navigation.navigate("Sunday")}
-      />
-    </SafeAreaView>
+    <ImageBackground
+      source={require("../../assets/thunderstorm-3625405_1920.jpg")}
+      style={styles.image}
+    >
+      <SafeAreaView style={styles.container}>
+        <Button
+          title="Go to Monday."
+          onPress={() => navigation.navigate("Monday")}
+        />
+        <Button
+          title="Go to Tuesday."
+          onPress={() => navigation.navigate("Tuesday")}
+        />
+        <Button
+          title="Go to Wednesday."
+          onPress={() => navigation.navigate("Wednesday")}
+        />
+        <Button
+          title="Go to Thursday."
+          onPress={() => navigation.navigate("Thursday")}
+        />
+        <Button
+          title="Go to Friday."
+          onPress={() => navigation.navigate("Friday")}
+        />
+        <Button
+          title="Go to Saturday."
+          onPress={() => navigation.navigate("Saturday")}
+        />
+        <Button
+          title="Go to Sunday."
+          onPress={() => navigation.navigate("Sunday")}
+        />
+      </SafeAreaView>
+    </ImageBackground>
   );
 
   //   const renderItem = ({ item }) => (
@@ -73,7 +77,7 @@ const UpcomingWeather = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
+    justifyContent: "space-evenly",
   },
   // Allows our image to fill the entire background on the page.
   image: {
