@@ -1,15 +1,9 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ImageBackground,
-  SafeAreaView,
-  FlatList,
-} from "react-native";
+import { View, Text, StyleSheet, SafeAreaView, FlatList } from "react-native";
 import ListItem from "../components/ListItem";
 
 const Monday = ({ weatherData }) => {
+  console.log("Is the data really here now!?" + weatherData);
   const renderItem = ({ item }) => (
     <ListItem
       condition={item.weather[0]?.main}
@@ -18,21 +12,15 @@ const Monday = ({ weatherData }) => {
       min={item.main.temp_min}
     />
   );
-  const { container, image } = styles;
+  const { container } = styles;
   return (
-    <ImageBackground
-      source={require("../../assets/thunderstorm-3625405_1920.jpg")}
-      style={image}
-    >
-      <SafeAreaView style={container}>
-        <FlatList
-          data={weatherData}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.dt_txt}
-        />
-        <Text>Cool text. Mad</Text>
-      </SafeAreaView>
-    </ImageBackground>
+    <SafeAreaView style={container}>
+      <FlatList
+        data={weatherData}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.dt_txt}
+      />
+    </SafeAreaView>
   );
 };
 

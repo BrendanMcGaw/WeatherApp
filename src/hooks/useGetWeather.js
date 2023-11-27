@@ -9,7 +9,6 @@ export const useGetWeather = () => {
   const [weather, setWeather] = useState([]);
   const [lat, setLat] = useState([]);
   const [lon, setLon] = useState([]);
-  console.log("This is the latitude" + lat + " " + lon);
 
   const fetchWeatherData = async () => {
     try {
@@ -19,6 +18,7 @@ export const useGetWeather = () => {
       const data = await res.json();
       setWeather(data);
       setLoading(false);
+      console.log("THIS MUST BE IT!!" + weather);
     } catch (error) {
       setError("Could not fetch weather.");
     } finally {

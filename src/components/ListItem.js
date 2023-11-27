@@ -6,9 +6,6 @@ import { Feather } from "@expo/vector-icons";
 import { WeatherType } from "../Utilities/WeatherType";
 import moment from "moment";
 
-// TODO::: Isolate each item by date or (Days of the week) -- Create stack navigator to sit each day inside of within the upcoming weather tab.
-// We'll work from the days to create list items so that we store all the weather data for each day in 1 clickable stack navigation tab.
-// Makes UX way better for isolating days weather.
 const ListItem = (props) => {
   const { dt_txt, min, max, condition } = props;
   const { item, date, temp, dateTextWrapper } = styles;

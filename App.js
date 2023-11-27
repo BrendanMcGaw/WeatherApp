@@ -7,6 +7,7 @@ import { useGetWeather } from "./src/hooks/useGetWeather";
 import ErrorItem from "./src/components/ErrorItem";
 
 const App = () => {
+  console.log("Hello Brendan.");
   const [loading, error, weather] = useGetWeather();
   console.log(loading, error, weather);
 
