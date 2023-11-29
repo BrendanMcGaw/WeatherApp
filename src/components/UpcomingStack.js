@@ -14,9 +14,7 @@ const Stack = createNativeStackNavigator();
 
 // TODO::: SETUP DATA PASSING --- REFER BACK TO TABS.JS for an example of how to do this with our API data.
 const UpcomingStack = ({ weatherData }) => {
-  const WeatherContext = createContext(weatherData);
-
-  console.log("Here comes the booty! " + (WeatherContext, null, 2));
+  console.log(weatherData);
   return (
     <Stack.Navigator
       screenOptions={{
@@ -28,7 +26,9 @@ const UpcomingStack = ({ weatherData }) => {
         name="Upcoming Weather"
         component={UpcomingWeather}
       />
-      <Stack.Screen name="Monday" component={Monday} />
+      <Stack.Screen name="Monday">
+        {(props) => <Monday {...props} weatherData={weatherData} />}
+      </Stack.Screen>
       {/* Clearly something wrong with my code, dunno how to pass this object to my screens. FUck! */}
       <Stack.Screen name="Tuesday" component={Tuesday} />
       <Stack.Screen name="Wednesday" component={Wednesday} />

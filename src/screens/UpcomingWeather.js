@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
+import { navigation } from "@react-navigation/native";
 import {
   SafeAreaView,
   StyleSheet,
@@ -21,7 +21,9 @@ const UpcomingWeather = ({ navigation }) => {
         <Button
           title="Go to Monday."
           onPress={() => navigation.navigate("Monday")}
-        />
+        >
+          {() => <Monday weatherData={weather.list} />}
+        </Button>
         <Button
           title="Go to Tuesday."
           onPress={() => navigation.navigate("Tuesday")}

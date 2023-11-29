@@ -9,7 +9,6 @@ import UpcomingWeather from "../screens/UpcomingWeather";
 const Tab = createBottomTabNavigator();
 
 const Tabs = ({ weather }) => {
-  console.log("SAY HELLO" + weather);
   return (
     <Tab.Navigator
       screenOptions={{

@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, SafeAreaView, FlatList } from "react-native";
 import ListItem from "../components/ListItem";
 
 const Monday = ({ weatherData }) => {
-  console.log("Is the data really here now!?" + weatherData);
+  console.log({ weatherData });
   const renderItem = ({ item }) => (
     <ListItem
       condition={item.weather[0]?.main}

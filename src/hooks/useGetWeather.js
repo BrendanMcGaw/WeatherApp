@@ -18,7 +18,6 @@ export const useGetWeather = () => {
       const data = await res.json();
       setWeather(data);
       setLoading(false);
-      console.log("THIS MUST BE IT!!" + weather);
     } catch (error) {
       setError("Could not fetch weather.");
     } finally {
@@ -38,7 +37,6 @@ export const useGetWeather = () => {
       setLat(location.coords.latitude);
       setLon(location.coords.longitude);
       await fetchWeatherData();
-      console.log(JSON.stringify(weather, null, 6));
     })(); // immediate invoking on function we put () afterwards.
   }, [lat, lon]); // Array is for the dependencies. This allows the useEffect to only run once when the component is first run.
   return [loading, error, weather];
