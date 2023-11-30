@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
   },
   populationWrapper: {
     justifyContent: "center",
-    marginTop: 30,
+    marginTop: 100,
   },
   popCount: {
     alignSelf: "center",
@@ -123,17 +123,17 @@ const styles = StyleSheet.create({
   },
   sunUpDownWrapper: {
     justifyContent: "space-around",
-    marginTop: 30,
+    marginTop: 350,
   },
   sunUpDown: {
-    alignSelf: "center",
+    alignSelf: "flex-end",
     justifyContent: "center",
     fontSize: 20,
     color: "white",
   },
   rowLayout: {
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "flex-end",
   },
 });
 

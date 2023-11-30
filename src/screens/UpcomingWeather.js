@@ -3,13 +3,11 @@ import { navigation } from "@react-navigation/native";
 import {
   SafeAreaView,
   StyleSheet,
-  FlatList,
-  StatusBar,
   ImageBackground,
   Text,
   Button,
+  Pressable,
 } from "react-native";
-import ListItem from "../components/ListItem";
 
 const UpcomingWeather = ({ navigation }) => {
   return (
@@ -18,73 +16,93 @@ const UpcomingWeather = ({ navigation }) => {
       style={styles.image}
     >
       <SafeAreaView style={styles.container}>
-        <Button
+        <Pressable
+          style={styles.button}
           title="Go to Monday."
           onPress={() => navigation.navigate("Monday")}
         >
+          {/* Uses callback function to pass weatherData to the new screen. */}
           {() => <Monday weatherData={weather.list} />}
-        </Button>
-        <Button
+          <Text style={styles.buttonText}>Monday</Text>
+        </Pressable>
+
+        <Pressable
+          style={styles.button}
           title="Go to Tuesday."
           onPress={() => navigation.navigate("Tuesday")}
-        />
-        <Button
+        >
+          <Text style={styles.buttonText}>Tuesday</Text>
+        </Pressable>
+
+        <Pressable
+          style={styles.button}
           title="Go to Wednesday."
           onPress={() => navigation.navigate("Wednesday")}
-        />
-        <Button
+        >
+          <Text style={styles.buttonText}>Wednesday</Text>
+        </Pressable>
+
+        <Pressable
+          style={styles.button}
           title="Go to Thursday."
           onPress={() => navigation.navigate("Thursday")}
-        />
-        <Button
+        >
+          <Text style={styles.buttonText}>Thursday</Text>
+        </Pressable>
+
+        <Pressable
+          style={styles.button}
           title="Go to Friday."
           onPress={() => navigation.navigate("Friday")}
-        />
-        <Button
+        >
+          <Text style={styles.buttonText}>Friday</Text>
+        </Pressable>
+
+        <Pressable
+          style={styles.button}
           title="Go to Saturday."
           onPress={() => navigation.navigate("Saturday")}
-        />
-        <Button
+        >
+          <Text style={styles.buttonText}>Saturday</Text>
+        </Pressable>
+
+        <Pressable
+          style={styles.button}
           title="Go to Sunday."
           onPress={() => navigation.navigate("Sunday")}
-        />
+        >
+          <Text style={styles.buttonText}>Sunday</Text>
+        </Pressable>
       </SafeAreaView>
     </ImageBackground>
   );
-
-  //   const renderItem = ({ item }) => (
-  //     <ListItem
-  //       condition={item.weather[0]?.main}
-  //       dt_txt={item.dt_txt}
-  //       max={item.main.temp_max}
-  //       min={item.main.temp_min}
-  //     />
-  //   );
-  //   const { container, image } = styles;
-  //   return (
-  //     <ImageBackground
-  //       source={require("../../assets/thunderstorm-3625405_1920.jpg")}
-  //       style={image}
-  //     >
-  //       <SafeAreaView style={container}>
-  //         <FlatList
-  //           data={weatherData}
-  //           renderItem={renderItem}
-  //           keyExtractor={(item) => item.dt_txt}
-  //         />
-  //       </SafeAreaView>
-  //     </ImageBackground>
-  //   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "space-evenly",
+    alignItems: "center",
   },
   // Allows our image to fill the entire background on the page.
   image: {
     flex: 1,
+  },
+
+  button: {
+    alignItems: "center",
+    justifyContent: "center",
+    height: 50,
+    width: 300,
+    borderRadius: 6,
+    elevation: 4,
+    color: "black",
+    backgroundColor: "#5DD9F5",
+  },
+
+  buttonText: {
+    fontSize: 18,
+    fontWeight: "bold",
   },
 });
 
