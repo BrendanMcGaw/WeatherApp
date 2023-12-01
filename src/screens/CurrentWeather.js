@@ -25,8 +25,6 @@ const CurrentWeather = ({ weatherData }) => {
     weather,
   } = weatherData;
   const weatherCondition = weather[0]?.main;
-  console.log(JSON.stringify(weatherData, null, 6));
-  console.log(weatherData.main.temp);
 
   return (
     <SafeAreaView

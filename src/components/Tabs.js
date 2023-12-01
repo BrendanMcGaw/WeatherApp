@@ -1,9 +1,10 @@
 import React from "react";
 import CurrentWeather from "../screens/CurrentWeather";
-import UpcomingWeather from "../screens/UpcomingWeather";
+import UpcomingStack from "./UpcomingStack";
 import City from "../screens/City";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Feather } from "@expo/vector-icons";
+import UpcomingWeather from "../screens/UpcomingWeather";
 
 const Tab = createBottomTabNavigator();
 
@@ -45,7 +46,7 @@ const Tabs = ({ weather }) => {
           ),
         }}
       >
-        {() => <UpcomingWeather weatherData={weather.list} />}
+        {() => <UpcomingStack weatherData={weather.list} />}
       </Tab.Screen>
       <Tab.Screen
         name={"City"}

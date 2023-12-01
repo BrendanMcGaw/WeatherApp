@@ -1,21 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, createContext } from "react";
 import { ActivityIndicator, View, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Tabs from "./src/components/Tabs";
 import * as Location from "expo-location";
 import { useGetWeather } from "./src/hooks/useGetWeather";
 import ErrorItem from "./src/components/ErrorItem";
 
+export const WeatherContext = createContext();
+
 const App = () => {
   const [loading, error, weather] = useGetWeather();
-  console.log(loading, error, weather);
+  console.log(JSON.stringify(weather.city, null, 6) + "More words");
 
   if (weather && weather.list && !loading) {
     return (
-      <NavigationContainer>
-        <Tabs weather={weather} />
-      </NavigationContainer>
+      <WeatherContext.Provider value={{ weather }}>
+        <NavigationContainer>
+          <Tabs weather={weather} />
+        </NavigationContainer>
+      </WeatherContext.Provider>
     );
   }
   return (
