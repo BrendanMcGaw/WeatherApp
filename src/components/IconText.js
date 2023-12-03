@@ -1,10 +1,10 @@
-import React from "react"
-import { View, Text, StyleSheet } from  "react-native"
-import { Feather } from "@expo/vector-icons"
+import React from 'react'
+import { View, Text, StyleSheet } from 'react-native'
+import { Feather } from '@expo/vector-icons'
 
 const IconText = (props) => {
-    const { iconName, iconColor, bodyText, bodyTextStyles }  = props
-    const { container,textTheme } = styles
+    const { iconName, iconColor, bodyText, bodyTextStyles } = props
+    const { container, textTheme } = styles
     return (
         <View style={container}>
             <Feather name={iconName} size={50} color={iconColor} />
@@ -15,14 +15,12 @@ const IconText = (props) => {
 
 const styles = StyleSheet.create({
     container: {
-        alignItems: "center",
+        alignItems: 'center'
     },
     textTheme: {
-        fontWeight: "bold"
+        fontWeight: 'bold'
     },
-    bodyTextStyles: {
-        
-    }
+    bodyTextStyles: {}
 })
 
 export default IconText

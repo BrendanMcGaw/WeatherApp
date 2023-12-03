@@ -1,10 +1,11 @@
 import React, { useContext, createContext } from "react";
-import { ActivityIndicator, View, StyleSheet } from "react-native";
+import { ActivityIndicator, View, StyleSheet, ScrollView } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import Tabs from "./src/components/Tabs";
 import * as Location from "expo-location";
 import { useGetWeather } from "./src/hooks/useGetWeather";
 import ErrorItem from "./src/components/ErrorItem";
+import ScrollRefresh from "./src/components/ScrollRefresh";
 
 export const WeatherContext = createContext();
 
@@ -15,9 +16,11 @@ const App = () => {
   if (weather && weather.list && !loading) {
     return (
       <WeatherContext.Provider value={{ weather }}>
-        <NavigationContainer>
-          <Tabs weather={weather} />
-        </NavigationContainer>
+        <ScrollView refreshControl={ScrollRefresh}>
+          <NavigationContainer>
+            <Tabs weather={weather} />
+          </NavigationContainer>
+        </ScrollView>
       </WeatherContext.Provider>
     );
   }
