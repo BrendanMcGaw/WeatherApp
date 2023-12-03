@@ -22,7 +22,7 @@ const UpcomingWeather = ({ navigation }) => {
                     onPress={() => navigation.navigate('Monday')}
                 >
                     {/* Uses callback function to pass weatherData to the new screen. */}
-                    {() => <Monday weatherData={weather.list} />}
+                    {/* {() => <Monday weatherData={weather.list} />} */}
                     <Text style={styles.buttonText}>Monday</Text>
                 </Pressable>
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, SafeAreaView, FlatList } from 'react-native'
+import { StyleSheet, SafeAreaView, FlatList } from 'react-native'
 import ListItem from '../components/ListItem'
 import moment from 'moment'
 
