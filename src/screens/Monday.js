@@ -4,7 +4,6 @@ import ListItem from '../components/ListItem'
 import moment from 'moment'
 
 const Monday = ({ weatherData }) => {
-    console.log(weatherData[0].dt_txt)
     const renderItem = ({ item }) => (
         <ListItem
             condition={item.weather[0]?.main}
@@ -21,8 +20,6 @@ const Monday = ({ weatherData }) => {
     // iterates through by using moment to find the day of the week and only displaying particular day products.
     for (let i = 0; i < weatherData.length; i++) {
         let dayName = moment(weatherData[i].dt_txt).format('dddd')
-        console.log(dayName)
-        console.log(i)
         if (dayName === 'Monday') {
             return (
                 <SafeAreaView style={container}>
@@ -36,7 +33,6 @@ const Monday = ({ weatherData }) => {
         }
     }
     // length of weatherData = 40. Iterate through i++ until == 40 and check each day to find all days that are the same and then render only those days datas.
-    console.log(weatherData.length)
 }
 
 const styles = StyleSheet.create({

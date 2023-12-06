@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import CurrentWeather from '../screens/CurrentWeather'
 import UpcomingStack from './UpcomingStack'
 import City from '../screens/City'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Feather } from '@expo/vector-icons'
 import UpcomingWeather from '../screens/UpcomingWeather'
+import { WeatherContext } from './WeatherDataContext'
 
 const Tab = createBottomTabNavigator()
 
-const Tabs = ({ weather }) => {
+const Tabs = () => {
+    const { loading, error, weather } = useContext(WeatherContext)
     return (
         <Tab.Navigator
             screenOptions={{

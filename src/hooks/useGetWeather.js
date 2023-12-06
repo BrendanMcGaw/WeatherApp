@@ -6,8 +6,8 @@ export const useGetWeather = () => {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
     const [weather, setWeather] = useState([])
-    const [lat, setLat] = useState([])
-    const [lon, setLon] = useState([])
+    const [lat, setLat] = useState(null)
+    const [lon, setLon] = useState(null)
 
     const fetchWeatherData = async () => {
         try {
@@ -32,11 +32,23 @@ export const useGetWeather = () => {
                 setError('permission to access location was denied')
                 return
             }
-            let location = await Location.getCurrentPositionAsync({})
+            console.log('Getting position prep')
+            // Changed getCurrentPositionAsync because the accuracy level set to default of getCurrentPositionAsync defaults to level 3
+            // which is the equivalant of 100 metres.
+            let location = await Location.getCurrentPositionAsync({
+                accuracy: Location.LocationAccuracy.Low
+            })
             setLat(location.coords.latitude)
             setLon(location.coords.longitude)
-            await fetchWeatherData()
         })() // immediate invoking on function we put () afterwards.
-    }, [lat, lon]) // Array is for the dependencies. This allows the useEffect to only run once when the component is first run.
+    }, []) // Array is for the dependencies. This allows the useEffect to only run once when the component is first run.
+
+    useEffect(() => {
+        if (!lat || !lon) {
+            return
+        }
+        fetchWeatherData()
+    }, [lat, lon])
+
     return [loading, error, weather]
 }

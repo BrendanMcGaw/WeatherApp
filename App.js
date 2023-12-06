@@ -16,40 +16,42 @@ import {
     WeatherProvider
 } from './src/components/WeatherDataContext'
 
+const AppWrapper = () => {
+    return (
+        <WeatherProvider>
+            <App />
+        </WeatherProvider>
+    )
+}
+
 const App = () => {
     const { loading, error, weather } = useContext(WeatherContext)
+    console.log(error)
     console.log(weather)
-    // const [refreshing, setRefreshing] = useState(false)
-    // const onRefresh = useCallback(() => {
-    //     setRefreshing(true)
-    //     setTimeout(() => {
-    //         setRefreshing(false)
-    //     }, 2000)
-    // }, [])
-
-    if (weather && weather.list && !loading) {
+    console.log('This is the weather!!')
+    console.log(loading)
+    if (loading) {
         return (
-            <WeatherProvider>
-                <SafeAreaView style={styles.viewContainer}>
-                    <NavigationContainer>
-                        <Tabs />
-                        {/* Had to place the ScrollView inside the navigation container, and set the position to absolute
+            <View style={styles.loadingContainer}>
+                {error ? (
+                    <ErrorItem />
+                ) : (
+                    <ActivityIndicator size={'large'} color={'blue'} />
+                )}
+            </View>
+        )
+    } else {
+        return (
+            <SafeAreaView style={styles.viewContainer}>
+                <NavigationContainer>
+                    <Tabs />
+                    {/* Had to place the ScrollView inside the navigation container, and set the position to absolute
                     and with a backgroundColor of transparent to enable the scroll without taking up any container space. */}
-                        {/* Refresh currently working, can't access tabs though, maybe seperate solution somewhere? */}
-                    </NavigationContainer>
-                </SafeAreaView>
-            </WeatherProvider>
+                    {/* Refresh currently working, can't access tabs though, maybe seperate solution somewhere? */}
+                </NavigationContainer>
+            </SafeAreaView>
         )
     }
-    return (
-        <View style={styles.loadingContainer}>
-            {error ? (
-                <ErrorItem />
-            ) : (
-                <ActivityIndicator size={'large'} color={'blue'} />
-            )}
-        </View>
-    )
 }
 
 const styles = StyleSheet.create({
@@ -62,4 +64,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default App
+export default AppWrapper
